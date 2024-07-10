@@ -167,7 +167,7 @@ def obtener_datos():
     global last_api_call, api_wait_time
 
     url = "https://api.caesistemas.com.ar/v1/ntr.php"
-    params = {"api_key": "MGgUAqeDyzDrmEQawzw7xN68"}
+    params = {"api_key": "xxx"}
 
     try:
         current_time = time.time()
@@ -211,7 +211,7 @@ def obtener_datos():
     
 def obtener_datos2():
     url2 = "https://cloud-api.digi.kalmarglobal.com/runningHours"
-    headers = {"X-API-KEY": "eIe9Cj5Hsm3BtGZj518fy8u9bJvHIDpZ9Eg4Z9yp"}
+    headers = {"X-API-KEY": "xxx"}
 
     try:
         response2 = requests.get(url2, headers=headers, verify=False)
