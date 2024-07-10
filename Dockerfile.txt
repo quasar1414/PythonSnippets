@@ -1,0 +1,24 @@
+# Dockerfile
+
+# Utiliza una imagen base ligera de Python
+FROM python:3.9-slim
+
+# Instala Airflow y dependencias
+RUN pip install apache-airflow==2.3.3 \
+
+# Instalamos las dependencias adicionales
+COPY Requirements.txt /Requirements.txt
+RUN pip install -r /Requirements.txt
+
+# Crea el directorio de trabajo de Airflow
+WORKDIR /opt/airflow
+
+# Copia los archivos de DAG y el script Python
+COPY dags /opt/airflow/dags
+
+# Configura las variables de entorno para Airflow
+ENV AIRFLOW_HOME=/opt/airflow
+ENV AIRFLOW__CORE__LOAD_EXAMPLES=False
+
+# Inicia el contenedor con Airflow
+CMD ["airflow", "webserver", "--port", "8080"]
